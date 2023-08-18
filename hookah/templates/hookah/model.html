@@ -1,0 +1,56 @@
+{%extends 'hookah/base.html'%}
+
+{%block body%}
+<h1 class="zag"></h1>
+<div class="grid">
+    <div class="model">
+        <p>Выбрать модель</p>
+
+        <form action="{%url 'model'%}" method="GET">
+            {%for i in model%}
+            <label class="contain">{{i.name}}
+         <input  type="checkbox" name="model" value="{{i.slug}}">
+                 <input type="hidden" name="id" value="{{i.categoria_id}}">
+            <span class="checkmark"></span>
+                </label>
+            {%endfor%}
+            <button>Поиск</button>
+            </form>
+
+</div>
+<div class="goodsmodel">
+    {% for i in goods %}
+    <div class="post"  data-id="{{i.pk}}">
+    <div class="card" >
+        <a href="{%url 'pk' i.slug%}" style="text-decoration:none; color:black;">
+        <img class="img" src="{{i.image.url}}">
+        <p class="name">{{i.name}}</p>
+       <span class="price">{{i.price}}</span>
+      <p style="display:none" class="defprice">{{i.price}}</p>
+        <span>$</span><br>
+        </a>
+        <div class="calkulate">
+            <button data-action="minus"><i data-action="minus" class="fa fa-minus"></i></button>
+        <button class="quan">1</button>
+         <button data-action="plus"><i data-action="plus" class="fa fa-plus"></i></button>
+            </div>
+        <form action="{%url 'basket'%}" method="POST">
+            {%csrf_token%}
+            <input type="hidden" name="image" value="{{i.image.url}}">
+            <input type="hidden" name="name" value="{{i.name}}" >
+            <input type="hidden" name="price" value="{{i.price}}">
+
+            <input type="hidden" name="id" value="{{i.id}}" >
+            <input type="hidden" class="valquan" name="quan" value="1" >
+        <button class="cardbutton" data-action="basket">Add to cart</button>
+        </form>
+        </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+    </div>
+
+
+{%endblock%}

@@ -1,0 +1,79 @@
+{%extends 'hookah/base.html'%}
+
+{%block body%}
+<h1 class="titlebasket" >Basket</h1>
+<div class="basketcontent">
+<div class="basket">
+    {%for i in request.session.basket%}
+    <div class="border" data-id="{{i.id}}">
+    <div class="col1">
+
+
+        <img src="{{i.image}}" alt="">
+    </div>
+    <div class="col2">
+        <div class="descr">
+        <h2>{{i.name}}</h2>
+
+            </div>
+    </div>
+    <div class="col3">
+
+        <span>Цена:</span>
+        <span class="price">{{i.price}}</span>
+         <span style="display:none" class="pricenone">{{i.price}}</span>
+        <span>$</span>
+<div class="calkulatebasket">
+        <form action="{%url 'minus'%}" method="POST" class="minusform">
+            {%csrf_token%}
+
+            <input type="hidden" name="minus" value="{{i.name}}">
+            <button data-action="basketminus" ><i data-action="basketminus" class="fa fa-minus"></i></button>
+            </form>
+         <button class="quan">{{i.quan}}</button>
+
+        <form action="{%url 'plus'%}" method="POST" class="plusform">
+            {%csrf_token%}
+             <input type="hidden" name="plus" value="{{i.name}}">
+            <button data-action="basketplus"><i data-action="basketplus" class="fa fa-plus"></i></button>
+            </form>
+
+             </div>
+        <div class="delete">
+            <form class="delform" action="{%url 'delete'%}" method="POST">
+                {%csrf_token%}
+                <input type="hidden" name="delete" value="{{i.name}}">
+        <button  class="del" data-action="del">Delete</button>
+                </form>
+        </div>
+
+    </div>
+
+        </div>
+{%endfor%}
+</div>
+<div class="empty">
+    <h1>cart is empty</h1>
+    <h3>add some product</h3>
+</div>
+
+<div class="total">
+    <h3>Total</h3>
+    <span class="totalprice"></span>
+        <span>$</span>
+
+    <form action="{%url 'clear'%}">
+        <button class="clear">Clear</button>
+    </form>
+    <div class="pay">
+        <form action="{%url 'pay'%}">
+            {%csrf_token%}
+             <input type="hidden" class="goodsname" name="goodsname" value="">
+            <input type="hidden" class="price" name="price" value="">
+            <button type="submit" class="pay">Pay</button>
+            </form>
+    </div>
+</div>
+    </div>
+<div style="height:400px;" class="areas"></div>
+{%endblock%}

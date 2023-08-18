@@ -1,0 +1,106 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Title</title>
+<!--    <link rel="stylesheet" href="/path/to/flickity.css" media="screen">-->
+     <link rel="stylesheet" href="{% static 'style/main.css' %}">
+    <link rel="stylesheet" href="{% static 'style/pk.css' %}">
+     <link rel="stylesheet" href="{% static 'style/category.css' %}">
+    <link rel="stylesheet" href="{% static 'style/model.css' %}">
+    <link rel="stylesheet" href="{% static 'style/basket.css' %}">
+      <link rel="stylesheet" href="{% static 'style/modalwin.css' %}">
+<link rel="stylesheet" href="{% static 'style/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<!--    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+</head>
+<style>
+
+</style>
+<body>
+<div class="mobmodel">
+     <form action="{%url 'model'%}" method="GET">
+            {%for i in model%}
+            <label class="contain">{{i.name}}
+         <input  type="checkbox" name="model" value="{{i.slug}}">
+                 <input type="hidden" name="id" value="{{i.categoria_id}}">
+            <span class="checkmark"></span>
+                </label>
+            {%endfor%}
+            <button>Поиск</button>
+            </form>
+
+</div>
+<div class="mobnavbar">
+      <a class="mobactive" href="{%url 'main'%}">Hookah <i class="fa fa-home"> Paradise</i></a>
+</div>
+<div class="mobnavbar2">
+
+    <div class="dropdown">
+      <i  data-action="menu" class="fa fa-bars"></i>
+        <i id="close" class="fa fa-bars"></i>
+  <button onclick="myFunction()" class="dropbtn">Category</button>
+  <div id="myDropdown" class="dropdown-content">
+      {%for i in categ %}
+    <a href="{%url 'category' i.slug%}">{{i.name}}</a>
+      {%endfor%}
+  </div>
+
+</div>
+
+      <a class="cart" href="{%url 'basket'%}"><i class="fa fa-shopping-cart"></i></a>
+   <div class="mobcartquan"></div>
+      <form action="{%url 'search'%}" method="GET" class="mobsearch">
+        <input type="text" class="inpsearch" name="search" placeholder="search">
+    </form>
+    </div>
+<div class="navbar">
+    <a class="active" href="{%url 'main'%}">Hookah <i class="fa fa-home"> Paradise</i></a>
+    {%for i in categ%}
+    <a class="passive" href="{%url 'category' i.slug%}">{{i.name}}</a>
+    {%endfor%}
+    <form action="{%url 'search'%}" method="GET" class="search">
+        <input type="text" class="inpsearchv"  name="search" placeholder="search">
+    </form>
+    <a class="cart" href="{%url 'basket'%}"><i class="fa fa-shopping-cart"></i></a>
+    <p  class="cartquan"></p>
+</div>
+<div class="modal">
+    <div class="info">
+    <h4>Подтвердите что вам больше 18 лет</h4>
+        <button class="false">Нет,мне меньше 18</button>
+        <button class="true">Да,мне больше 18</button>
+
+    <h4>На сайте представлены табанвые изделия,табак несет вред вашему здоровью </h4>
+</div>
+    </div>
+{%block body%}
+
+
+{%endblock%}
+<div  class="basketinfo">
+    {%for i in request.session.basket%}
+    <div data-id = "{{i.id}}" ></div>
+    {%endfor%}
+</div>
+
+
+<footer>
+    <h1>Hookah Paradise</h1>
+</footer>
+</body>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="{% static 'js/card.js' %}"></script>
+<script src="{% static 'js/model.js' %}"></script>
+<script src="{% static 'js/modalwin.js' %}"></script>
+<script src="{% static 'js/basket.js' %}"></script>
+<script src="{% static 'js/pk.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
+</html>

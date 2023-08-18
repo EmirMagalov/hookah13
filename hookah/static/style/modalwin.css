@@ -1,0 +1,55 @@
+.modal {
+  display:none; /* Скрыто по умолчанию */
+  overflow-y: hidden;
+  position: fixed; /* Оставаться на месте */
+  z-index: 1; /* Сидеть на вершине */
+  padding-top: 100px; /* Расположение коробки */
+  left: 0;
+  top: 0;
+  width: 100%; /* Полная ширина */
+  height: 100%; /* Полная высота */
+  background-color: rgba(0,0,0,0.4); /*Черный с непрозрачностью */
+
+}
+.info{
+left: 50%;
+top: 50%;
+margin:-150px 0 0 -285px;
+position:absolute;
+background-color: white;
+width:500px;
+padding:50px;
+text-align:center;
+  border-radius:10px;
+}
+.info button{
+margin:10px;
+}
+.true{
+padding:10px;
+font-size:15px;
+border:none;
+color:black;
+background-color:yellow;
+}
+
+.false{
+padding:10px;
+font-size:15px;
+border:none;
+color:white;
+background-color:#202020;
+}
+
+@media(max-width:500px){
+.info{
+ width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin:-150px 0 0px -175px;
+text-align:center;
+  border-radius:10px;
+}
+}

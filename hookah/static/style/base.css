@@ -1,0 +1,174 @@
+
+
+
+
+
+.dropbtn {
+  background-color: yellow;
+  color: black;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width:140px;
+  border-radius:0 0 10px 10px;
+
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: yellow;
+  border:2px solid white;
+}
+.dropdown i {
+font-size:25px;
+position:absolute;
+left:25px;
+top:15px;
+
+display:none;
+
+}
+
+.dropdown {
+  position: relative;
+  display:block;
+  text-align:center;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width:100%;
+  overflow:auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+.filter li{
+display:none;
+}
+.search{
+position:absolute;
+left:50%;
+top:20px;
+margin-left:-110px;
+}
+.search input[type=text] {
+padding: 6px;
+font-size: 17px;
+border-radius:10px;
+border:2px solid black;
+}
+.mobsearch{
+text-align:center;
+margin-bottom:2px;
+}
+.mobsearch input[type=text] {
+  padding: 6px;
+  font-size: 15px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  margin:5px 0 5px 0;
+}
+.search input:focus{
+border:2px solid yellow;
+outline:none;
+}
+.mobsearch input:focus{
+border:1px solid yellow;
+outline:none;
+}
+.mobnavbar2{
+display:none;
+position:fixed;
+background-color:#ddd;
+width:100%;
+top:58px;
+z-index:2;
+}
+.mobnavbar2 .cart i{
+color:black;
+}
+.mobnavbar2 .cart {
+position:absolute;
+top:15px;
+right:20px;
+}
+
+.mobnavbar{
+padding:20px 0 20px 0;
+text-align:center;
+top:0px;
+background-color: black;
+position:fixed;
+width:100%;
+z-index:2;
+display:none;
+}
+.mobnavbar a{
+
+color:black;
+padding:10px;
+background-color:yellow;
+border-radius:10px 10px 0 0;
+text-decoration:none;
+}
+
+.mobmodel{
+display:none;
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 111px;
+left: -20px;
+background-color:#ddd;
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;
+transition:0.5;
+
+padding:10px;
+}
+.mobmodel button{
+font-size:15px;
+border:none;
+padding:10px;
+background-color:yellow;
+border-radius:10px;
+
+}
+@media (max-width: 500px) {
+.navbar{
+display:none;
+}
+.mobcartquan{
+position:absolute;
+color:black;
+top:2px;
+right:10px;
+}
+.mobnavbar{
+display:block;
+}
+.mobnavbar2{
+display:block;
+}
+.mobmodel{
+display:block;
+
+}
+}

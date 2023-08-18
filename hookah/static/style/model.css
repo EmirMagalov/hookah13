@@ -1,0 +1,12 @@
+.goodsmodel{
+display:grid;
+grid-template-areas:"card card card card ";
+column-gap:30px;
+}
+
+@media(max-width:500px){
+.goodsmodel{
+grid-template-areas:"card card";
+column-gap:30px;
+row-gap:10px;
+}}

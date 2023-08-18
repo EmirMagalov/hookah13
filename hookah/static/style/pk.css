@@ -1,0 +1,69 @@
+.pkname{
+margin-top:120px;
+text-align:center;
+}
+.pkdescr{
+width:500px;
+}
+.content{
+background-color:rgb(160,160,160,0.1);
+display:grid;
+grid-template-areas:"opis opis2";
+column-gap:150px;
+justify-content:center;
+padding:20px;
+}
+.opis2{
+padding:40px;
+box-shadow:0px 0px 15px #C0C0C0;
+
+}
+.opis img{
+border:1px solid black;
+width:450px;
+height:650px;
+}
+.pkbutton{
+
+font-size:20px;
+padding:10px 15px 10px 15px;
+border:none;
+border-radius:10px;
+background-color:yellow;
+}
+.calkpk{
+margin-top:20px;
+}
+.calkpk button{
+font-size:20px;
+border:none;
+padding:10px;
+background-color:white;
+}
+.pluspk{
+border-radius:10px 0 0 10px;
+}
+.minuspk{
+border-radius:0px 10px 10px 0px;
+}
+
+
+@media(max-width:500px){
+.content{
+grid-template-areas:"opis";
+justify-content:center;
+}
+.opis img{
+border:1px solid black;
+width:250px;
+height:450px;
+
+}
+.opis{
+text-align:center;
+}
+.opis2{
+text-align:center;
+padding:10px;
+}
+}

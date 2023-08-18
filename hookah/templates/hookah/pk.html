@@ -1,0 +1,41 @@
+{%extends 'hookah/base.html'%}
+
+
+{%block body%}
+  <h1 class="pkname">{{goods.name}}</h1>
+<div class="post" data-id="{{goods.id}}">
+<div class="content">
+
+    <div class="opis">
+        <img src="{{goods.image.url}}" alt="">
+    </div>
+    <div class="opis2">
+        <h3>Описание:</h3>
+    <p class="pkdescr">{{goods.descr}}</p>
+        <span style="font-size:20px;font-weight:900">Цена:</span>
+        <span class="price">{{goods.price}}</span>
+        <p style="display:none;" class="defprice">{{goods.price}}</p>
+        <span>$</span><br><br>
+        <span style="font-size:20px;font-weight:900">Тип:</span>
+        <span>{{goods.categoria}}</span><br>
+        <div class="calkpk">
+       <button class="pluspk" data-action="pluspk"><i data-action="pluspk" class="fa fa-plus"></i></button>
+        <button class="quan">1</button>
+         <button class="minuspk" data-action="minuspk"><i data-action="minuspk" class="fa fa-minus"></i></button>
+            </div>
+        <br>
+         <form action="{%url 'basket'%}" method="POST" >
+            {%csrf_token%}
+            <input type="hidden" name="image" value="{{goods.image.url}}">
+            <input type="hidden" name="name" value="{{goods.name}}" >
+            <input type="hidden" name="price" value="{{goods.price}}">
+
+            <input type="hidden" name="id" value="{{goods.id}}" >
+            <input type="hidden" class="valquan" name="quan" value="1" >
+        <button class="pkbutton" data-action="basket">Add to cart</button>
+        </form>
+    </div>
+</div>
+</div>
+
+{%endblock%}
